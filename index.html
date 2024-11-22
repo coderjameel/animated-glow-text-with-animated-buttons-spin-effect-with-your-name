@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Name glow effect | animated rounded edges | Coder Jameel</title>
+    <link rel="stylesheet" href="style.css">
+
+    <script>
+        function toTitleCase(str) {
+            return str.toLowerCase().split(' ').map(function(word) {
+            return word.charAt(0).toUpperCase() + word.slice(1);
+                }).join(' ');
+        }
+        
+        function changeText() {
+            const h1 = document.getElementById("displayText");
+            const text = document.getElementById("inputText");
+            if(!text.value.trim()){
+                text.value = "Please enter any text";
+            }
+            h1.textContent = toTitleCase(text.value);
+            text.value = "";
+        }
+
+        document.addEventListener('keydown', function(event) {
+              if (event.key === 'Enter' || event.code === 'Enter') {
+                changeText();
+             }
+});
+
+
+    </script>
+    
+</head>
+<body>
+
+    <div class="glow-text">
+        <h1 id="displayText">Coder Jameel</h1>
+     
+    <div id="inputAnimator">
+    <input autocomplete="off" type="text" id="inputText" placeholder="Enter any text" autofocus> </div> <br>
+    <div id="btnAnimator">
+    <button id="feelingLuckyBtn" onclick="changeText()">Feeling Lucky</button> </div>
+</div>
+    
+
+</body>
+</html>

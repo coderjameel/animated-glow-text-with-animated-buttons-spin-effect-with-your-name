@@ -1,0 +1,141 @@
+body{
+    background-color: black;
+}
+
+.glow-text{
+    color: black;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+    font-size: 40px;
+}
+
+.glow-text h1{
+    animation: neon_glow 5s linear infinite;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#feelingLuckyBtn{
+    position: relative;
+    margin: 30px;
+}
+
+@property --angle{
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+#btnAnimator{
+    position: relative;
+    display: inline-block;
+}
+
+#btnAnimator::after{
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    height: 52%;
+    width: 73%;
+    border-radius: 45px;
+    background: conic-gradient(from var(--angle),red,blue);
+    z-index: -1;
+    animation: spin 2s linear infinite;
+}
+
+
+
+
+#inputText{
+    background-color: black;
+    padding: 10px;
+    border: none;
+    font-size: 15px;
+    border-radius: 20px;
+    position: relative;
+    color: whitesmoke;
+    text-align: center;
+}
+
+#inputAnimator{
+    display: inline-block;
+    position: relative;
+}
+
+
+
+#inputAnimator::after{
+    --angle: 0deg;
+    content: "";
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    height: 100%;
+    width: 100%;
+    border-radius: 20px;
+    box-sizing: border-box;
+    padding: 2px 110px;
+    background: conic-gradient(from var(--angle),red,blueviolet,violet,blue,navy);
+    z-index: -1;
+    animation: spin 2s linear infinite;
+
+}
+
+@keyframes spin {
+    from{
+       --angle:0deg;
+    }
+    to{
+        --angle:360deg;
+    }
+    
+}
+
+#inputText::placeholder{
+    color: whitesmoke;
+    text-align: center;
+}
+
+#inputText:focus{
+   outline: none;
+}
+
+.glow-text button{
+    background-color: black;
+    color: whitesmoke;
+    padding: 10px;
+    border: none;
+    font-weight: bolder;
+    border-radius: 20px;
+}
+
+.glow-text button:hover{
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+@keyframes neon_glow {
+    0%{
+       -webkit-text-stroke: 5px blueviolet;
+    }
+    20%{
+        -webkit-text-stroke: 5px red;
+    }
+    40%{
+        -webkit-text-stroke: 5px cyan;
+    }
+    60%{
+        -webkit-text-stroke: 5px navajowhite;
+    }
+    80%{
+        -webkit-text-stroke: 5px plum;
+    }
+    100%{
+        -webkit-text-stroke: 5px orange;
+    }
+}
